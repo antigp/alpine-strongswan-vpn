@@ -2,19 +2,11 @@
 # StrongSwan VPN + Alpine Linux
 #
 
-FROM gliderlabs/alpine:3.6
+FROM ubuntu:16.04
 
 ENV STRONGSWAN_RELEASE https://download.strongswan.org/strongswan.tar.bz2
 
-RUN apk --update add build-base \
-            ca-certificates \
-            curl \
-            curl-dev \
-            ip6tables \
-            iproute2 \
-            iptables-dev \
-            openssl \
-            openssl-dev && \
+RUN apt-get install iptables-persistent curl curl-dev ip6tables iproute2 iptables-dev openssl  openssl-dev && \
     mkdir -p /tmp/strongswan && \
     curl -Lo /tmp/strongswan.tar.bz2 $STRONGSWAN_RELEASE && \
     tar --strip-components=1 -C /tmp/strongswan -xjf /tmp/strongswan.tar.bz2 && \
