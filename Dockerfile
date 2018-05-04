@@ -48,8 +48,7 @@ RUN apt-get update && apt-get install -y iptables-persistent bzip2 build-essenti
     make && \
     make install && \
     rm -rf /tmp/* && \
-    apk del build-base curl-dev openssl-dev && \
-    rm -rf /var/cache/apk/*
+    apt-get uninstall build-essential libcurl4-openssl-dev iptables-dev
 
 EXPOSE 500/udp \
        4500/udp
