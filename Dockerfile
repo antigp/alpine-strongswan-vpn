@@ -48,7 +48,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y iptables
     make && \
     make install && \
     rm -rf /tmp/* && \
-    apt-get remove build-essential libcurl4-openssl-dev iptables-dev
+    DEBIAN_FRONTEND=noninteractive apt-get remove -y build-essential libcurl4-openssl-dev iptables-dev
 
 EXPOSE 500/udp \
        4500/udp
