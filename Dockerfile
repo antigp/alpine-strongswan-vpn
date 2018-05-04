@@ -6,7 +6,7 @@ FROM ubuntu:16.04
 
 ENV STRONGSWAN_RELEASE https://download.strongswan.org/strongswan.tar.bz2
 
-RUN apt-get update && apt-get install -y iptables-persistent bzip2 curl libcurl4-openssl-dev  iproute2 iptables-dev openssl libssl-dev && \
+RUN apt-get update && apt-get install -y iptables-persistent bzip2 build-essential curl libcurl4-openssl-dev  iproute2 iptables-dev openssl libssl-dev && \
     mkdir -p /tmp/strongswan && \
     curl -Lo /tmp/strongswan.tar.bz2 $STRONGSWAN_RELEASE && \
     tar --strip-components=1 -C /tmp/strongswan -xjf /tmp/strongswan.tar.bz2 && \
